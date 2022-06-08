@@ -1,0 +1,28 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+#cal-body {
+    height: 70vh;
+    width: 30%;
+    margin: 9em auto 0;
+    background-color: aqua;
+    border-radius: 14px;
+    display: flex;
+    flex-direction: column;
+}
+
+#screen {
+    width: 85%;
+    height: 25%;
+    margin: 1em auto 0;
+    background-color: aliceblue;
+}
+
+#buttons {
+    height: 70%;
+    width: 85%;
+    margin: 0.6em auto 0;
+    background-color: aquamarine;
+}
