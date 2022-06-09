@@ -18,6 +18,10 @@
     height: 25%;
     margin: 1em auto 0;
     background-color: aliceblue;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
 }
 
 #buttons {

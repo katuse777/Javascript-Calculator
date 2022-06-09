@@ -53,3 +53,7 @@
  const clear = document.getElementById('clear');
  const operateButton = document.getElementById('operate');
  const deleteButton = document.getElementById('delete');
+
+ function onScreen() {
+     
+ }
