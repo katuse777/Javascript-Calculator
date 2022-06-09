@@ -55,6 +55,9 @@ const operateButton = document.getElementById('operate');
 const deleteButton = document.getElementById('delete');
 const setUp = document.getElementById('set-up');
 const answerDisplay = document.getElementById('answer');
+const equalButton = document.getElementById('equal');
+const operationDisplay = document.getElementById('operation');
+const secondValueDisplay = document.getElementById('secondValue');
 
 onButton.addEventListener('click', () => {
     answerDisplay.textContent = '';
@@ -95,12 +98,13 @@ button9.addEventListener('click', () => {
     onScreen(9);
 });
 
+
+ 
 function operation(opp) {
-    const firstValue = Number(answerDisplay.textContent);
-    setUp.textContent += firstValue;
-    setUp.textContent += opp;
+    operationDisplay.textContent = opp;
+    setUp.textContent += answerDisplay.textContent; 
     answerDisplay.textContent = '';
-}
+} 
 
 addButton.addEventListener('click', () => {
     operation(' + ');
@@ -115,3 +119,29 @@ divideButton.addEventListener('click', () => {
     operation('/');
 })
 
+function equalCall() {
+    const firstValue = Number(setUp.textContent);
+    const secondValue = Number(answerDisplay.textContent);
+    secondValueDisplay.textContent = answerDisplay.textContent;
+    if(operationDisplay.textContent === ' x ') {
+        answerDisplay.textContent = multiply(firstValue, secondValue);
+    } else if(operationDisplay.textContent === '/') {
+        answerDisplay.textContent = divide(firstValue, secondValue);
+    } else if(operationDisplay.textContent === ' + ') {
+        answerDisplay.textContent = add(firstValue, secondValue);
+    } else if(operationDisplay.textContent === ' - ') {
+        answerDisplay.textContent = subtract(firstValue, secondValue);
+    }
+   
+}
+
+equalButton.addEventListener('click', () => {
+    equalCall();
+})
+
+clear.addEventListener('click', () => {
+    setUp.textContent = '';
+    operationDisplay.textContent = '';
+    secondValueDisplay.textContent = '';
+    answerDisplay.textContent = '';
+})
