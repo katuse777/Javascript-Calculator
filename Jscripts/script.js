@@ -95,32 +95,23 @@ button9.addEventListener('click', () => {
     onScreen(9);
 });
 
+function operation(opp) {
+    const firstValue = Number(answerDisplay.textContent);
+    setUp.textContent += firstValue;
+    setUp.textContent += opp;
+    answerDisplay.textContent = '';
+}
 
 addButton.addEventListener('click', () => {
-    const firstValue = Number(answerDisplay.textContent);
-    setUp.textContent += firstValue;
-    setUp.textContent += ' + ';
-    answerDisplay.textContent = '';
-
+    operation(' + ');
 })
 minusButton.addEventListener('click', () => {
-    const firstValue = Number(answerDisplay.textContent);
-    setUp.textContent += firstValue;
-    setUp.textContent += ' - ';
-    answerDisplay.textContent = '';
-
+    operation(' - ');
 })
 multiplyButton.addEventListener('click', () => {
-    const firstValue = Number(answerDisplay.textContent);
-    setUp.textContent += firstValue;
-    setUp.textContent += ' x ';
-    answerDisplay.textContent = '';
-
+    operation(' x ');
 })
 divideButton.addEventListener('click', () => {
-    const firstValue = Number(answerDisplay.textContent);
-    setUp.textContent += firstValue;
-    setUp.textContent += '/';
-    answerDisplay.textContent = '';
-
+    operation('/');
 })
+
