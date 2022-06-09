@@ -1,5 +1,7 @@
+
+//This section is for the function that run the four basic operations of Math
 function add(a, b) {
-    return a + b;
+    return a + b ;
 }
 
 function subtract(a, b) {
@@ -14,26 +16,10 @@ function divide(a, b) {
     return a / b;
 }
 
-function random() {
-    return Math.floor(Math.random() * 4);
-}
 
-function operate(a, b) {
-    const randomNumber = random();
+//The end of the section above
 
-    switch (randomNumber) {
-        case 0:
-            return add(a, b);
-        case 1:
-            return subtract(a, b);
-        case 2:
-            return multiply(a, b);
-        case 3:
-            return divide(a, b);
-
-    }
-}
-
+//The section below a list of variables that store a reference to a button on the calculator or a paragraph element on it's screen
 const display = document.getElementById('screen');
 const onButton = document.getElementById('on');
 const button0 = document.getElementById('0');
@@ -58,15 +44,17 @@ const answerDisplay = document.getElementById('answer');
 const equalButton = document.getElementById('equal');
 const operationDisplay = document.getElementById('operation');
 const secondValueDisplay = document.getElementById('secondValue');
+//The end of the section above
 
-onButton.addEventListener('click', () => {
-    answerDisplay.textContent = '';
-})
-
+//The section below is filled with code for when the buttons are clicked they'll call the onScreen() function 
+// the number or operation they represent will be dispayed onScreen 
 function onScreen(num) {
     answerDisplay.textContent += num;
 }
 
+onButton.addEventListener('click', () => {
+    answerDisplay.textContent = '';
+})
 button0.addEventListener('click', () => {
     onScreen(0);
 });
@@ -97,13 +85,12 @@ button8.addEventListener('click', () => {
 button9.addEventListener('click', () => {
     onScreen(9);
 });
+//The end of the section above
 
-
- 
+ //The section below contains code that when the operation buttons are pressed, the firstValue and operation are displatyed in their
+ //own paragraph element 
 function operation(opp) {
-    operationDisplay.textContent = opp;
-    setUp.textContent += answerDisplay.textContent; 
-    answerDisplay.textContent = '';
+    
 } 
 
 addButton.addEventListener('click', () => {
@@ -118,21 +105,10 @@ multiplyButton.addEventListener('click', () => {
 divideButton.addEventListener('click', () => {
     operation('/');
 })
+//The end of the section above
 
 function equalCall() {
-    const firstValue = Number(setUp.textContent);
-    const secondValue = Number(answerDisplay.textContent);
-    secondValueDisplay.textContent = answerDisplay.textContent;
-    if(operationDisplay.textContent === ' x ') {
-        answerDisplay.textContent = multiply(firstValue, secondValue);
-    } else if(operationDisplay.textContent === '/') {
-        answerDisplay.textContent = divide(firstValue, secondValue);
-    } else if(operationDisplay.textContent === ' + ') {
-        answerDisplay.textContent = add(firstValue, secondValue);
-    } else if(operationDisplay.textContent === ' - ') {
-        answerDisplay.textContent = subtract(firstValue, secondValue);
-    }
-   
+    
 }
 
 equalButton.addEventListener('click', () => {
@@ -140,8 +116,5 @@ equalButton.addEventListener('click', () => {
 })
 
 clear.addEventListener('click', () => {
-    setUp.textContent = '';
-    operationDisplay.textContent = '';
-    secondValueDisplay.textContent = '';
-    answerDisplay.textContent = '';
+    
 })
