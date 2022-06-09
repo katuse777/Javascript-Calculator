@@ -53,7 +53,48 @@
  const clear = document.getElementById('clear');
  const operateButton = document.getElementById('operate');
  const deleteButton = document.getElementById('delete');
+ const setUp = document.getElementById('set-up');
+ const answerDisplay = document.getElementById('answer');
 
- function onScreen() {
-     
+ onButton.addEventListener('click', () => {
+     answerDisplay.textContent = 0;
+ })
+
+ function onScreen(num) {
+     answerDisplay.textContent += num;
+     setUp.textContent += num;
+     const firstValue = Number(setUp.textContent);
+     console.log(firstValue);
+     console.log(typeof firstValue);
  }
+
+ button0.addEventListener('click', () => {
+     onScreen(0);
+ });
+ button1.addEventListener('click', () => {
+     onScreen(1);
+ });
+ button2.addEventListener('click', () => {
+     onScreen(2);
+ });
+ button3.addEventListener('click', () => {
+    onScreen(3);
+});
+button4.addEventListener('click', () => {
+    onScreen(4);
+});
+button5.addEventListener('click', () => {
+    onScreen(5);
+});
+button6.addEventListener('click', () => {
+    onScreen(6);
+});
+button7.addEventListener('click', () => {
+    onScreen(7);
+});
+button8.addEventListener('click', () => {
+    onScreen(8);
+});
+ button9.addEventListener('click', () => {
+     onScreen(9);
+ });
