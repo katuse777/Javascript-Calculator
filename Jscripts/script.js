@@ -188,4 +188,7 @@ clear.addEventListener('click', () => {
     oppArr = [];
 
 })
-console.log('working');
+
+deleteButton.addEventListener('click', () => {
+    
+})
