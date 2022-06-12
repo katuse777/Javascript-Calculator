@@ -75,9 +75,7 @@ const returnedValue = function (num) {
 
 
 
-onButton.addEventListener('click', () => {
-    answerDisplay.textContent = '';
-})
+
 button0.addEventListener('click', () => {
     returnedValue(0);
 });
@@ -190,3 +188,4 @@ clear.addEventListener('click', () => {
     oppArr = [];
 
 })
+console.log('working');

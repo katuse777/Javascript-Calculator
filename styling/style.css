@@ -3,6 +3,9 @@
     padding: 0;
     overflow: hidden;
 }
+body {
+    background: linear-gradient(90deg, blue, red);
+}
 
 #cal-body {
     height: 70vh;
@@ -48,6 +51,13 @@ button:hover {
     color: white;
 }
 
+h1 {
+    text-align: center;
+    color: antiquewhite;
+    margin: 2em auto 0;
+}
+
 p {
     font-size: 38px;
 }
+
