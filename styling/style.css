@@ -12,6 +12,7 @@
     border-radius: 14px;
     display: flex;
     flex-direction: column;
+    flex-wrap: wrap;
 }
 
 #screen {

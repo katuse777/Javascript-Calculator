@@ -57,6 +57,8 @@ const answerDisplay = document.getElementById('answer');
 const equalButton = document.getElementById('equal');
 const operationDisplay = document.getElementById('operation');
 const secondValueDisplay = document.getElementById('secondValue');
+const pointButton = document.getElementById('point');
+const buttonsDisplay = document.getElementById('buttons');
 //The end of the section above
 
 //The section below is filled with code for when the buttons are clicked they'll call the onScreen() function 
@@ -106,11 +108,16 @@ button8.addEventListener('click', () => {
 button9.addEventListener('click', () => {
     returnedValue(9);
 });
+pointButton.addEventListener('click', () => {
+    returnedValue('.');
+    pointButton.remove();
+})
 //The end of the section above
 
 //The section below contains code that when the operation buttons are pressed, the firstValue and operation are displatyed in their
 //own paragraph element 
 const operation = function (opp) {
+    buttonsDisplay.append(pointButton);
     firstValue = answerDisplay.textContent;
     numbersArr.push(firstValue);
     oppArr.push(opp);
@@ -122,6 +129,10 @@ const operation = function (opp) {
         let value2 = Number(numbersArr.shift());
         const oppArrItem = oppArr.shift();
         console.log(oppArr);
+        if(value1 === 0 && value2 === 0 && oppArrItem === '/') {
+            answerDisplay.textContent = 'No!';
+            return;
+        }
         numbersArr.unshift(operate(oppArrItem, value1, value2));
         console.log(numbersArr);
         return;
@@ -142,6 +153,10 @@ equalButton.addEventListener('click', () => {
     console.log(secondValue);
     const chosenOpp = oppArr.shift();
     console.log(chosenOpp);
+    if(firstValue === 0 && secondValue === 0 && chosenOpp === '/') {
+        answerDisplay.textContent = 'No!';
+        return;
+    }
     answerDisplay.textContent = operate(chosenOpp, firstValue, secondValue);
     //console.log(answerDisplay.textContent);
 })
@@ -169,5 +184,9 @@ divideButton.addEventListener('click', () => {
 
 
 clear.addEventListener('click', () => {
+    setUp.textContent = '';
+    answerDisplay.textContent = '';
+    numbersArr = [];
+    oppArr = [];
 
 })
