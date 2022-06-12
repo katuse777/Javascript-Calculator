@@ -1,7 +1,7 @@
 
 //This section is for the function that run the four basic operations of Math
 function add(a, b) {
-    return a + b ;
+    return a + b;
 }
 
 function subtract(a, b) {
@@ -14,6 +14,19 @@ function multiply(a, b) {
 
 function divide(a, b) {
     return a / b;
+}
+
+function operate(opp, a, b) {
+    if (opp === ' x ') {
+        return multiply(a, b);
+    } else if (opp === '/') {
+        return divide(a, b);
+    } else if (opp === ' + ') {
+        return add(a, b);
+    } else if (opp === ' - ') {
+        return subtract(a, b);
+    }
+
 }
 
 
@@ -48,73 +61,113 @@ const secondValueDisplay = document.getElementById('secondValue');
 
 //The section below is filled with code for when the buttons are clicked they'll call the onScreen() function 
 // the number or operation they represent will be dispayed onScreen 
-function onScreen(num) {
+const numbersArr = [];
+const oppArr = [];
+let firstValue;
+
+
+const returnedValue = function (num) {
     answerDisplay.textContent += num;
+    setUp.textContent += num;
 }
+
+
 
 onButton.addEventListener('click', () => {
     answerDisplay.textContent = '';
 })
 button0.addEventListener('click', () => {
-    onScreen(0);
+    returnedValue(0);
 });
 button1.addEventListener('click', () => {
-    onScreen(1);
+    returnedValue(1);
 });
 button2.addEventListener('click', () => {
-    onScreen(2);
+    returnedValue(2);
 });
 button3.addEventListener('click', () => {
-    onScreen(3);
+    returnedValue(3);
 });
 button4.addEventListener('click', () => {
-    onScreen(4);
+    returnedValue(4);
 });
 button5.addEventListener('click', () => {
-    onScreen(5);
+    returnedValue(5);
 });
 button6.addEventListener('click', () => {
-    onScreen(6);
+    returnedValue(6);
 });
 button7.addEventListener('click', () => {
-    onScreen(7);
+    returnedValue(7);
 });
 button8.addEventListener('click', () => {
-    onScreen(8);
+    returnedValue(8);
 });
 button9.addEventListener('click', () => {
-    onScreen(9);
+    returnedValue(9);
 });
 //The end of the section above
 
- //The section below contains code that when the operation buttons are pressed, the firstValue and operation are displatyed in their
- //own paragraph element 
-function operation(opp) {
-    
-} 
+//The section below contains code that when the operation buttons are pressed, the firstValue and operation are displatyed in their
+//own paragraph element 
+const operation = function (opp) {
+    firstValue = answerDisplay.textContent;
+    numbersArr.push(firstValue);
+    oppArr.push(opp);
+    console.log(oppArr);
+    if (numbersArr.length === 2) {
+        setUp.textContent += opp;
+        answerDisplay.textContent = '';
+        let value1 = Number(numbersArr.shift());
+        let value2 = Number(numbersArr.shift());
+        const oppArrItem = oppArr.shift();
+        console.log(oppArr);
+        numbersArr.unshift(operate(oppArrItem, value1, value2));
+        console.log(numbersArr);
+        return;
+    }
+    console.log(numbersArr);
+    setUp.textContent += opp;
+    answerDisplay.textContent = '';
+    return opp;
+}
+
+
+equalButton.addEventListener('click', () => {
+    firstValue = numbersArr.shift();
+    firstValue = Number(firstValue);
+    console.log(firstValue);
+    let secondValue = answerDisplay.textContent;
+    secondValue = Number(secondValue);
+    console.log(secondValue);
+    const chosenOpp = oppArr.shift();
+    console.log(chosenOpp);
+    answerDisplay.textContent = operate(chosenOpp, firstValue, secondValue);
+    //console.log(answerDisplay.textContent);
+})
+
+
 
 addButton.addEventListener('click', () => {
     operation(' + ');
+
 })
 minusButton.addEventListener('click', () => {
     operation(' - ');
+
 })
 multiplyButton.addEventListener('click', () => {
     operation(' x ');
+
+    
 })
 divideButton.addEventListener('click', () => {
     operation('/');
+
 })
 //The end of the section above
 
-function equalCall() {
-    
-}
-
-equalButton.addEventListener('click', () => {
-    equalCall();
-})
 
 clear.addEventListener('click', () => {
-    
+
 })
